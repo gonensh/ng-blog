@@ -1,0 +1,11 @@
+$footer-nav-item-bg: #fff !default;
+$footer-nav-item-color: #000 !default;
+
+.app-footer {
+  .menu-wrapper {
+    .nav-item {
+      background-color: $footer-nav-item-bg;
+      color: $footer-nav-item-color;
+    }
+  }
+}

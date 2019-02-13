@@ -1,0 +1,21 @@
+$nav-item-bg: #464646 !default;
+$nav-item-bg-active: #00aeff !default;
+$nav-item-color: #fff !default;
+$nav-item-color--footer: #000;
+
+.nav-item {
+  background-color: $nav-item-bg;
+  color: $nav-item-color;
+  margin: .5em;
+  padding: .5em 1em;
+  text-transform: uppercase;
+
+  &.active {
+    background-color: $nav-item-bg-active;
+  }
+
+  .app-footer & {
+    background-color: unset;
+    color: $nav-item-color--footer;
+  }
+}
