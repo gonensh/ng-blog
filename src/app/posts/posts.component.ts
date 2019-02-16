@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../post';
+import { Post } from './post';
 
 @Component({
-  selector: 'app-post-list',
-  templateUrl: './post-list.component.html',
-  styleUrls: ['./post-list.component.scss']
+  selector: 'app-posts',
+  templateUrl: './posts.component.html',
+  styleUrls: ['./posts.component.scss']
 })
-export class PostListComponent implements OnInit {
+export class PostsComponent implements OnInit {
   posts: Post[];
   constructor() {
     // TODO: Get posts from ngrx store
@@ -25,3 +25,5 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {}
 }
+
+// TODO: Add ChangeDetectionStrategy.OnPush

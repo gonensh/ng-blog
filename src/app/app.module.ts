@@ -4,17 +4,17 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
-import { PostListComponent } from './post-list/post-list.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { FiltersComponent } from './post-list/filters/filters.component';
-import { PostTileComponent } from './post-list/post-tile/post-tile.component';
 import { JoinPipe } from './join.pipe';
+import { PostsComponent } from './posts/posts.component';
+import { PostTileComponent } from './posts/post-tile/post-tile.component';
+import { FiltersComponent } from './posts/filters/filters.component';
 @NgModule({
   declarations: [
     AppComponent,
-    PostListComponent,
+    PostsComponent,
     HomeComponent,
     AboutComponent,
     ContactsComponent,
