@@ -7,10 +7,10 @@ import { UiModule } from './ui/ui.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { JoinPipe } from './join.pipe';
 import { PostsComponent } from './posts/posts.component';
 import { PostTileComponent } from './posts/post-tile/post-tile.component';
 import { FiltersComponent } from './posts/filters/filters.component';
+import { JoinPipe } from './pipes/join.pipe';
 @NgModule({
   declarations: [
     AppComponent,
