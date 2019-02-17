@@ -8,7 +8,20 @@ export interface PostState {
 }
 
 export const initialState: PostState = {
-  posts: [],
+  posts: [
+    {
+      title: `Post 1`,
+      content: 'Very interesting content here: ' + Math.random(),
+      image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
+      categories: ['Design', 'Development']
+    },
+    {
+      title: `Post 2`,
+      content: 'Very interesting content here: ' + Math.random(),
+      image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
+      categories: ['Design', 'Development']
+    }
+  ],
   postsLoading: false,
   postsLoaded: false
 };
