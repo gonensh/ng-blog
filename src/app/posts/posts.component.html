@@ -1,11 +1,7 @@
 <app-filters></app-filters>
-<div *ngIf="!posts">
-  <p>
+<div class="posts row">
+  <p *ngIf="!((posts$ | async)?.length)">
     No posts loaded yet.
   </p>
-</div>
-<div *ngIf="posts">
-  <div class="posts row">
-    <app-post-tile *ngFor="let post of posts" [post]="post" class="col-12 col-md-3"></app-post-tile>
-  </div>
+  <app-post-tile *ngFor="let post of (posts$ | async)" [post]="post" class="col-12 col-md-3"></app-post-tile>
 </div>

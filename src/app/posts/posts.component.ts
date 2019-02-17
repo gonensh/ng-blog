@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../models/post.model';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import * as fromStore from '../store';
 
 @Component({
@@ -9,14 +10,14 @@ import * as fromStore from '../store';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  posts: Post[];
+  @Input() userId: string;
 
-  constructor(private store: Store<PostsReducer.PostsState>) {}
+  posts$: Observable<Post[]>;
+
+  constructor(private store: Store<fromStore.PostsState>) {}
 
   ngOnInit() {
-    this.store.select(PostsReducer.getAllPosts).subscribe(posts => {
-      this.posts = posts;
-    });
+    this.posts$ = this.store.select(fromStore.getAllPosts);
   }
 }
 
