@@ -15,6 +15,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { PostsModule } from './posts/posts.module';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,13 +30,14 @@ import { PostsModule } from './posts/posts.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     UiModule,
+    PostsModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    }),
-    PostsModule
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
