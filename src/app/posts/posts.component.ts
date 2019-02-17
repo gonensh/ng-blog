@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/post.model';
+import { Store } from '@ngrx/store';
+import * as PostsReducer from '../reducers';
 
 @Component({
   selector: 'app-posts',
@@ -8,22 +10,14 @@ import { Post } from '../models/post.model';
 })
 export class PostsComponent implements OnInit {
   posts: Post[];
-  constructor() {
-    // TODO: Get posts from ngrx store
-    // TODO: Fetch posts from typicode/jsonplaceholder into the store using an effect
-    this.posts = [];
-    const fakePostCount = 8;
-    for (let i = 0; i < fakePostCount; i++) {
-      this.posts.push({
-        title: `Post ${i}`,
-        content: 'Very interesting content here: ' + Math.random(),
-        image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
-        categories: ['Design', 'Development']
-      });
-    }
-  }
 
-  ngOnInit() {}
+  constructor(private store: Store<PostsReducer.PostsState>) {}
+
+  ngOnInit() {
+    this.store.select(PostsReducer.getAllPosts).subscribe(posts => {
+      this.posts = posts;
+    });
+  }
 }
 
 // TODO: Add ChangeDetectionStrategy.OnPush
