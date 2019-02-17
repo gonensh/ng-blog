@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../post';
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-post-tile',
