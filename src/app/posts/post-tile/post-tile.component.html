@@ -2,5 +2,5 @@
   <div class="post-tile--image" [style.backgroundImage]="'url(' + post.image + ')'"></div>
   <div class="post-tile--categories">{{post.categories | join:', '}}</div>
   <div class="post-tile--title">{{post.title}}</div>
-  <div class="post-tile--content">{{post.content | slice:0:50}}&hellip;</div>
+  <div class="post-tile--content">{{post.body | slice:0:50}}&hellip;</div>
 </div>

@@ -1,7 +1,7 @@
-import { Post } from './post';
+import { Post } from './post.model';
 
 describe('Post', () => {
   it('should create an instance', () => {
-    expect(new Post('Post Title', 'Post Content')).toBeTruthy();
+    expect(new Post()).toBeTruthy();
   });
 });
