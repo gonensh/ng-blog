@@ -11,6 +11,10 @@ import { PostsComponent } from './posts/posts.component';
 import { PostTileComponent } from './posts/post-tile/post-tile.component';
 import { FiltersComponent } from './posts/filters/filters.component';
 import { JoinPipe } from './pipes/join.pipe';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +26,16 @@ import { JoinPipe } from './pipes/join.pipe';
     PostTileComponent,
     JoinPipe
   ],
-  imports: [BrowserModule, AppRoutingModule, UiModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    UiModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production
+    })
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
