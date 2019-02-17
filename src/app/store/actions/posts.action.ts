@@ -13,6 +13,7 @@ export class LoadPosts implements Action {
 
 export class LoadPostsSuccess implements Action {
   readonly type = ActionTypes.LoadPostsSuccess;
+  public payload: Post[];
   constructor(payload: Post[]) {}
 }
 

@@ -1,5 +1,5 @@
 import * as PostsAction from '../actions/posts.action';
-import { Post } from '../models/post.model';
+import { Post } from '../../models/post.model';
 
 export interface PostState {
   posts: Post[];
@@ -10,16 +10,20 @@ export interface PostState {
 export const initialState: PostState = {
   posts: [
     {
+      id: 0,
+      userId: 1,
       title: `Post 1`,
-      content: 'Very interesting content here: ' + Math.random(),
-      image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
-      categories: ['Design', 'Development']
+      body: 'Very interesting content here: ' + Math.random()
+      // image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
+      // categories: ['Design', 'Development']
     },
     {
+      id: 0,
+      userId: 1,
       title: `Post 2`,
-      content: 'Very interesting content here: ' + Math.random(),
-      image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
-      categories: ['Design', 'Development']
+      body: 'Very interesting content here: ' + Math.random()
+      // image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
+      // categories: ['Design', 'Development']
     }
   ],
   postsLoading: false,
@@ -36,7 +40,13 @@ export function reducer(
     }
 
     case PostsAction.ActionTypes.LoadPostsSuccess: {
-      return { ...state, postsLoading: false, postsLoaded: true };
+      const posts = action.payload;
+      return {
+        ...state,
+        postsLoading: false,
+        postsLoaded: true,
+        posts
+      };
     }
 
     case PostsAction.ActionTypes.LoadPostsFail: {

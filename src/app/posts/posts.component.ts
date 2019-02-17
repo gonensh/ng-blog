@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/post.model';
 import { Store } from '@ngrx/store';
-import * as PostsReducer from '../reducers';
+import * as fromStore from '../store';
 
 @Component({
   selector: 'app-posts',
