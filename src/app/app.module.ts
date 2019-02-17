@@ -12,9 +12,9 @@ import { PostTileComponent } from './posts/post-tile/post-tile.component';
 import { FiltersComponent } from './posts/filters/filters.component';
 import { JoinPipe } from './pipes/join.pipe';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { PostsModule } from './posts/posts.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,11 +30,12 @@ import { environment } from '../environments/environment';
     BrowserModule,
     AppRoutingModule,
     UiModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    PostsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
