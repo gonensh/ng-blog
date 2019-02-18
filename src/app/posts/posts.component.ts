@@ -10,13 +10,17 @@ import * as fromStore from '../store';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  @Input() userId: string;
-
   posts$: Observable<Post[]>;
 
-  constructor(private store: Store<fromStore.PostsState>) {}
+  constructor(private store: Store<fromStore.AppState>) {}
 
   ngOnInit() {
+    this.store.select(fromStore.getSelectedUser).subscribe(userId => {
+      if (typeof userId !== 'undefined') {
+        this.store.dispatch(new fromStore.LoadPosts(userId));
+      }
+    });
+
     this.posts$ = this.store.select(fromStore.getAllPosts);
   }
 }
