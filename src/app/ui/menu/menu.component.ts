@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, fromEvent } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-menu',
@@ -10,12 +8,5 @@ import { switchMap } from 'rxjs/operators';
 export class MenuComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {
-    fromEvent(
-      document.querySelectorAll('app-menu a.nav-item'),
-      'click'
-    ).subscribe(e => {
-      console.log(e);
-    });
-  }
+  ngOnInit() {}
 }
