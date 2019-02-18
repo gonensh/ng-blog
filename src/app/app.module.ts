@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactsComponent } from './contacts/contacts.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostTileComponent } from './posts/post-tile/post-tile.component';
 import { FiltersComponent } from './posts/filters/filters.component';
@@ -23,8 +21,6 @@ import { AppEffects } from './app.effects';
     AppComponent,
     PostsComponent,
     HomeComponent,
-    AboutComponent,
-    ContactsComponent,
     FiltersComponent,
     PostTileComponent,
     JoinPipe
