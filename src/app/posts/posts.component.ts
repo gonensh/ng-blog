@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../models/post.model';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+
+import { Post } from '../models/post.model';
 import * as fromStore from '../store';
 
 @Component({
@@ -11,6 +12,8 @@ import * as fromStore from '../store';
 })
 export class PostsComponent implements OnInit {
   posts$: Observable<Post[]>;
+  postsLoading$: Observable<boolean>;
+  postsLoaded$: Observable<boolean>;
 
   constructor(private store: Store<fromStore.AppState>) {}
 
@@ -22,6 +25,8 @@ export class PostsComponent implements OnInit {
     });
 
     this.posts$ = this.store.select(fromStore.getAllPosts);
+    this.postsLoading$ = this.store.select(fromStore.getPostsLoading);
+    this.postsLoaded$ = this.store.select(fromStore.getPostsLoaded);
   }
 }
 
