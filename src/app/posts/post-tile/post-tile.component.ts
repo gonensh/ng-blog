@@ -12,4 +12,9 @@ export class PostTileComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  private previewPost() {
+    alert(`⚠️ UNIMPLEMENTED FEATURE!
+THIS SHOULD PREVIEW POST ID#${this.post.id}`);
+  }
 }

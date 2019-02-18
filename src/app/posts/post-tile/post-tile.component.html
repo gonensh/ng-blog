@@ -1,6 +1,9 @@
 <div *ngIf="post" class="post-tile">
-  <div class="post-tile--image" [style.backgroundImage]="'url(' + post.image + ')'"></div>
+  <div class="post-tile--image-container" (click)="previewPost()">
+    <img class="post-tile--image" src="{{post.image}}">
+    <div class="post-tile--image-overlay"></div>
+  </div>
   <div class="post-tile--categories">{{post.categories | join:', '}}</div>
-  <div class="post-tile--title">{{post.title}}</div>
-  <div class="post-tile--content">{{post.body | slice:0:50}}&hellip;</div>
+  <div class="post-tile--title">{{post.title | slice:0:30}}<span *ngIf="post.title.length > 30">&hellip;</span></div>
+  <div class="post-tile--body">{{post.body | slice:0:180}}<span *ngIf="post.body.length > 180">&hellip;</span></div>
 </div>
