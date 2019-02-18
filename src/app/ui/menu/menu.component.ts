@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-menu',
@@ -6,7 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  menuRoutes = [
+    { path: '/home', name: 'Home' },
+    { path: '/about', name: 'About' },
+    { path: '/contacts', name: 'Contacts' }
+  ];
+  @Input() hidePaths: string[];
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.hidePaths) {
+      this.menuRoutes = this.menuRoutes.filter(route => {
+        return !this.hidePaths.includes(route.path);
+      });
+    }
+  }
 }

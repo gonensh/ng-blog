@@ -1,5 +1,3 @@
 <div class="menu-wrapper row">
-  <a class="nav-item nav-link" routerLinkActive="active" routerLink="/home">Home</a>
-  <a class="nav-item nav-link" routerLinkActive="active" routerLink="/about">About</a>
-  <a class="nav-item nav-link" routerLinkActive="active" routerLink="/contacts">Contacts</a>
+  <a *ngFor="let route of menuRoutes" class="nav-item nav-link" routerLinkActive="active" routerLink="{{route.path}}">{{route.name}}</a>
 </div>
