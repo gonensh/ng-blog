@@ -19,9 +19,33 @@ export class PostsEffects {
     ofType(PostsAction.PostsActionTypes.LoadPosts),
     switchMap(action => {
       return this.postService.getPosts(action.userId).pipe(
+        map(this.addFluffData),
         map(posts => new PostsAction.LoadPostsSuccess(posts)),
         catchError(error => of(new PostsAction.LoadPostsFail(error)))
       );
     })
   );
+
+  /**
+   * addFluffData - THIS IS A HACK FOR DEMO PURPOSES ONLY
+   * This function adds information missing from the API that is required to match the comps
+   * @param posts: Post[]
+   */
+  private addFluffData(posts) {
+    return posts.map(post => {
+      return {
+        id: post.id,
+        userId: post.userId,
+        title: post.title,
+        body: post.body,
+        image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
+        categories: [
+          ...['web', 'print'].filter(category => {
+            return Math.random() > 0.5;
+          }),
+          'digital'
+        ]
+      };
+    });
+  }
 }
