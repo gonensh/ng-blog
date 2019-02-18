@@ -1,25 +1,28 @@
 import { Action } from '@ngrx/store';
 import { Post } from 'src/app/models/post.model';
 
-export enum ActionTypes {
+export enum PostsActionTypes {
   LoadPosts = '[Posts] Load Posts',
   LoadPostsSuccess = '[Posts] Load Posts Success',
   LoadPostsFail = '[Posts] Load Posts Fail'
 }
 
 export class LoadPosts implements Action {
-  readonly type = ActionTypes.LoadPosts;
+  readonly type = PostsActionTypes.LoadPosts;
+  public userId: number;
+  constructor(userId: number) {
+    this.userId = userId;
+  }
 }
 
 export class LoadPostsSuccess implements Action {
-  readonly type = ActionTypes.LoadPostsSuccess;
-  public payload: Post[];
-  constructor(payload: Post[]) {}
+  readonly type = PostsActionTypes.LoadPostsSuccess;
+  constructor(public payload: Post[]) {}
 }
 
 export class LoadPostsFail implements Action {
-  readonly type = ActionTypes.LoadPostsFail;
-  constructor(payload: any) {}
+  readonly type = PostsActionTypes.LoadPostsFail;
+  constructor(public payload: any) {}
 }
 
-export type ActionUnion = LoadPosts | LoadPostsSuccess | LoadPostsFail;
+export type PostsActionUnion = LoadPosts | LoadPostsSuccess | LoadPostsFail;

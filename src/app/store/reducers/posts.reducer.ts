@@ -8,38 +8,21 @@ export interface PostState {
 }
 
 export const initialState: PostState = {
-  posts: [
-    {
-      id: 0,
-      userId: 1,
-      title: `Post 1`,
-      body: 'Very interesting content here: ' + Math.random()
-      // image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
-      // categories: ['Design', 'Development']
-    },
-    {
-      id: 0,
-      userId: 1,
-      title: `Post 2`,
-      body: 'Very interesting content here: ' + Math.random()
-      // image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
-      // categories: ['Design', 'Development']
-    }
-  ],
+  posts: [],
   postsLoading: false,
   postsLoaded: false
 };
 
 export function reducer(
   state = initialState,
-  action: PostsAction.ActionUnion
+  action: PostsAction.PostsActionUnion
 ): PostState {
   switch (action.type) {
-    case PostsAction.ActionTypes.LoadPosts: {
+    case PostsAction.PostsActionTypes.LoadPosts: {
       return { ...state, postsLoading: true };
     }
 
-    case PostsAction.ActionTypes.LoadPostsSuccess: {
+    case PostsAction.PostsActionTypes.LoadPostsSuccess: {
       const posts = action.payload;
       return {
         ...state,
@@ -49,7 +32,8 @@ export function reducer(
       };
     }
 
-    case PostsAction.ActionTypes.LoadPostsFail: {
+    case PostsAction.PostsActionTypes.LoadPostsFail: {
+      const error = action.payload;
       return { ...state, postsLoading: false, postsLoaded: false };
     }
 
