@@ -1,16 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+
 import { AppComponent } from './app.component';
+import { UiModule } from './ui/ui.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [RouterTestingModule, UiModule],
+      declarations: [AppComponent]
     }).compileComponents();
   }));
 
@@ -26,10 +24,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('ng-blog');
   });
 
-  it('should render title in a h1 tag', () => {
+  it('should render a site container div', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-blog!');
+    expect(compiled.querySelectorAll('div.site-container').length).toEqual(1);
   });
 });

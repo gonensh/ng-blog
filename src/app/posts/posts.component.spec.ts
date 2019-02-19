@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MockStoreModule } from '@reibo/ngrx-mock-test';
 
 import { PostsComponent } from './posts.component';
+import { PostTileComponent } from './post-tile/post-tile.component';
+import { JoinPipe } from '../pipes/join.pipe';
 
 describe('PostsComponent', () => {
   let component: PostsComponent;
@@ -8,7 +11,8 @@ describe('PostsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [PostsComponent]
+      imports: [MockStoreModule.forRoot('root', {})],
+      declarations: [PostsComponent, PostTileComponent, JoinPipe]
     }).compileComponents();
   }));
 
