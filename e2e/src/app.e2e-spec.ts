@@ -13,6 +13,22 @@ describe('workspace-project App', () => {
     expect(page.getTitleText()).toEqual('MY WORKS');
   });
 
+  it('should display nav buttons in the header', () => {
+    page.navigateTo();
+    expect(page.getHeaderNavItem().getText()).toEqual('HOME');
+    expect(page.getHeaderNavItem().getAttribute('class')).toContain(
+      'nav-item--button'
+    );
+  });
+
+  it('should display nav links in the footer', () => {
+    page.navigateTo();
+    expect(page.getFooterNavItem().getText()).toEqual('ABOUT');
+    expect(page.getFooterNavItem().getAttribute('class')).toContain(
+      'nav-item--link'
+    );
+  });
+
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
     const logs = await browser
