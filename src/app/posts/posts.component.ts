@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Post } from '../models/post.model';
@@ -11,6 +11,7 @@ import * as fromStore from '../store';
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
+  selectedUser$: Observable<number>;
   posts$: Observable<Post[]>;
   postsLoading$: Observable<boolean>;
   postsLoaded$: Observable<boolean>;
@@ -18,16 +19,15 @@ export class PostsComponent implements OnInit {
   constructor(private store: Store<fromStore.AppState>) {}
 
   ngOnInit() {
-    this.store.select(fromStore.getSelectedUser).subscribe(userId => {
+    this.selectedUser$ = this.store.pipe(select(fromStore.getSelectedUser));
+    this.posts$ = this.store.pipe(select(fromStore.getAllPosts));
+    this.postsLoading$ = this.store.pipe(select(fromStore.getPostsLoading));
+    this.postsLoaded$ = this.store.pipe(select(fromStore.getPostsLoaded));
+
+    this.selectedUser$.subscribe(userId => {
       if (typeof userId !== 'undefined') {
         this.store.dispatch(new fromStore.LoadPosts(userId));
       }
     });
-
-    this.posts$ = this.store.select(fromStore.getAllPosts);
-    this.postsLoading$ = this.store.select(fromStore.getPostsLoading);
-    this.postsLoaded$ = this.store.select(fromStore.getPostsLoaded);
   }
 }
-
-// TODO: Add ChangeDetectionStrategy.OnPush
