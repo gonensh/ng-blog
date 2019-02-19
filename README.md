@@ -35,8 +35,8 @@ Completed:
 	- ✅ Effects
 		- ✅ Fetching data from Typicode's JSONPlaceholder API
 		- ✅ Randomized fluff data to match the design comps
+- ✅ Responsive UI matching the design comps
 
 In progress:
-- ❌ Responsive UI matching the design comps
 - ❌ Unit tests
 - ❌ End-to-end tests
