@@ -40,10 +40,10 @@ export class PostsEffects {
         body: post.body,
         image: 'https://source.unsplash.com/random/230x178?r=' + Math.random(),
         categories: [
-          ...['web', 'print'].filter(category => {
+          ...['Web', 'Print'].filter(category => {
             return Math.random() > 0.5;
           }),
-          'digital'
+          'Digital'
         ]
       };
     });
