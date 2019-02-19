@@ -1,11 +1,6 @@
-$footer-nav-item-bg: #fff !default;
-$footer-nav-item-color: #000 !default;
+@import '../../../variables';
 
-.app-footer {
-  .menu-wrapper {
-    .nav-item {
-      background-color: $footer-nav-item-bg;
-      color: $footer-nav-item-color;
-    }
-  }
+.app-footer-container {
+  border-top: $border-style;
+  padding-top: 25px;
 }
