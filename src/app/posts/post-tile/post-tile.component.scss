@@ -1,4 +1,26 @@
-$overlay-bg-color: rgba(0, 0, 0, .8);
+@import '../../../variables';
+
+$overlay-bg-color: rgba(0, 0, 0, .8) !default;
+$post-tile--border-top: $border-style;
+
+.post-tile {
+  margin-bottom: 55px;
+
+  &--categories {
+    font-size: 12px;
+    font-style: italic;
+  }
+
+  &--title {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  &--body {
+    border-top: $post-tile--border-top;
+    margin-top: 1em;
+  }
+}
 
 .post-tile--image {
   height: auto;
