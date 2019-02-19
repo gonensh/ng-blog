@@ -1,3 +1,4 @@
 <div class="menu-wrapper row">
-  <a *ngFor="let route of menuRoutes" class="nav-item nav-link" routerLinkActive="active" routerLink="{{route.path}}">{{route.name}}</a>
+  <a *ngFor="let route of menuRoutes" class="nav-item nav-link nav-item--{{navItemStyle}}" routerLinkActive="active"
+    routerLink="{{route.path}}">{{route.name}}</a>
 </div>

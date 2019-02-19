@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
     { path: '/contacts', name: 'Contacts' }
   ];
   @Input() hidePaths: string[];
+  @Input() navItemStyle = 'button';
 
   constructor() {}
 
