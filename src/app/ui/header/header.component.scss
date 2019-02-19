@@ -1,8 +1,15 @@
 .navbar {
   line-height: 1.5rem;
+  margin: 50px 0;
+  padding: 0;
 
   &-logo {
     float: left;
     margin-right: .5em;
+  }
+
+  &-brand {
+    font-size: 12px;
+    font-style: italic;
   }
 }
