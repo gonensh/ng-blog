@@ -1,5 +1,4 @@
-<app-filters></app-filters>
-<div class="posts container">
+<div class="posts">
   <p *ngIf="postsLoading$ | async">Loading posts...</p>
   <p *ngIf="!(postsLoaded$ | async) && !(postsLoading$ | async)">
     No posts loaded yet.
