@@ -1,3 +1,6 @@
-<div *ngIf="categories" class="categories-container">
-  <a *ngFor="let category of categories">{{category}}</a>
+<div class="filters-container">
+  <div *ngIf="categories" class="categories-container">
+    <a *ngFor="let category of categories" [ngClass]="{'category-filter': true, 'selected': selectedCategory == category}"
+      (click)="selectCategory(category)">{{category}}</a>
+  </div>
 </div>
