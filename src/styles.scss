@@ -1,8 +1,12 @@
-$grid-gutter-width: 10px;
-$container-max-widths: (sm: 600px, md: 950px, lg: 1280px, xl: 1600px);
+@import 'variables';
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
 @import '~bootstrap/scss/reboot';
 @import '~bootstrap/scss/grid';
 @import '~font-awesome/css/font-awesome.css';
+
+body {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+}
